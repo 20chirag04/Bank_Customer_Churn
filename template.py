@@ -15,6 +15,9 @@ folders = [
     "src",
     "src/components",
     "src/pipeline",
+    "src/entity",
+    "src/constants",
+    "src/constants/values",
     "templates",
     "static"
 ]
@@ -29,7 +32,7 @@ files = [
     ".env",
     "app.py",
 
-    "config/config.yaml",
+    "config/schema.yaml",
 
     "src/__init__.py",
     "src/logger.py",
@@ -42,9 +45,16 @@ files = [
     "src/components/data_transformation.py",
     "src/components/model_trainer.py",
 
+    "src/constants/__init__.py",
+    "src/constants/values/__init__.py",
+
+
     "src/pipeline/__init__.py",
     "src/pipeline/train_pipeline.py",
     "src/pipeline/predict_pipeline.py",
+
+    "src/entity/artifact_entity.py",
+    "src/entity/config_entity.py",
 
     "templates/index.html"
 ]

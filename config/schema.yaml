@@ -1,0 +1,44 @@
+columns:
+  RowNumber: int
+  CustomerId: int
+  Surname: object
+  CreditScore: int
+  Geography: object
+  Gender: object
+  Age: int
+  Tenure: int
+  Balance: float
+  NumOfProducts: int
+  HasCrCard: int
+  IsActiveMember: int
+  EstimatedSalary: float
+  Exited: int
+  Complain: int
+  Satisfaction Score: int
+  Card Type: object
+  Point Earned: int
+
+target_column: Exited
+
+numerical_columns:
+  - CreditScore
+  - Age
+  - Tenure
+  - Balance
+  - NumOfProducts
+  - HasCrCard
+  - IsActiveMember
+  - EstimatedSalary
+  - Satisfaction Score
+  - Point Earned
+
+categorical_columns:
+  - Geography
+  - Gender
+  - Card Type
+
+drop_columns:
+  - RowNumber
+  - CustomerId
+  - Surname
+  - Complain

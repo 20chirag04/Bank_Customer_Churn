@@ -26,7 +26,6 @@ class DataIngestion:
             os.makedirs(self.config.ingested_dir,exist_ok=True)
             
             df.to_csv(self.config.raw_file_path,index=False)
-            logging.info("Raw file")
 
             train_df,test_df = train_test_split(df,
                                             test_size=values.TRAIN_TEST_SPLIT_RATIO,
@@ -35,11 +34,13 @@ class DataIngestion:
             train_df.to_csv(self.config.train_file_path,index = False)
             test_df.to_csv(self.config.test_file_path,index = False)
 
+            logging.info("Ingestion Completed")
             return DataIngestionArtifact(
                 train_data_path=self.config.train_file_path,
                 test_data_path=self.config.test_file_path,
                 raw_data_path=self.config.raw_file_path
             )
+            
             
         except Exception as e:
             raise CustomException(e,sys)

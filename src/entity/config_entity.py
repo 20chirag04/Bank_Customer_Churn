@@ -12,4 +12,10 @@ class DataIngestionConfig:
         self.data_path = os.path.join(values.DATA_DIR,values.DATA_FILE_NAME)
         self.train_test_split_ratio = values.TRAIN_TEST_SPLIT_RATIO
 
+class DataValidationConfig:
+    def __init__(self):
+        
+        self.validation_dir = os.path.join(values.ARTIFACT_DIR,values.VALIDATION_DIR)
+        self.drift_report_file_path = os.path.join(self.validation_dir,values.DRIFT_REPORT_FILE_NAME)
+        self.schema_file_path = values.SCHEMA_FILE_PATH
 

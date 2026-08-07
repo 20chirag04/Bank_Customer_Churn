@@ -14,11 +14,15 @@ TRAIN_TEST_SPLIT_RATIO = 0.2
 RANDOM_STATE = 12
 INGESTED_DIR = 'data_ingestion'
 
+## Data Validation Variables
+VALIDATION_DIR = "data_validation"
+SCHEMA_FILE_PATH = os.path.join("config","schema.yaml") 
+DRIFT_REPORT_FILE_NAME = "drift_report.yaml"
+
 
 TRANSFORMED_DIR = "transformed"
 
 TRAINED_MODEL_DIR = "trained"
 
-VALIDATION_DIR = "validation"
 
 EVALUATION_DIR = "evaluation"
