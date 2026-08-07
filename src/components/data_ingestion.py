@@ -15,7 +15,7 @@ class DataIngestion:
     def __init__(self,config:DataIngestionConfig):
         self.config = config
     
-    def data_ingestion_initiate(self) -> DataIngestionArtifact:
+    def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
             logging.info("Ingestion Initiated")
             print("Ingestion Started")
