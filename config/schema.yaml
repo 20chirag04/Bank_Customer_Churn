@@ -29,13 +29,15 @@ numerical_columns:
   - HasCrCard
   - IsActiveMember
   - EstimatedSalary
-  - Satisfaction Score
   - Point Earned
 
 categorical_columns:
   - Geography
   - Gender
   - Card Type
+
+ordinal_columns:
+  - Satisfaction Score
 
 drop_columns:
   - RowNumber

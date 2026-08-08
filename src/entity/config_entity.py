@@ -26,5 +26,8 @@ class DataTransformationConfig:
         self.transformed_test_file_path = os.path.join(self.transformed_dir,values.TRANSFORMED_TEST_FILE_NAME)
         self.preprocessor_object_file_path = os.path.join(self.transformed_dir,values.PREPROCESSOR_OBJECT_FILE_NAME)
         
-
+class ModelTrainerConfig:
+    def __init__(self):
+        self.model_trainer_dir = os.path.join(values.ARTIFACT_DIR,values.MODEL_TRAINER_DIR)
+        self.trained_model_file_path = os.path.join(self.model_trainer_dir,values.TRAINED_MODEL_FILE_NAME)
 

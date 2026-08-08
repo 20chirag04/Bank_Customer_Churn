@@ -12,7 +12,7 @@ from src.entity.config_entity import DataTransformationConfig
 from src.constants import values
 
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from sklearn.preprocessing import StandardScaler,OneHotEncoder,OrdinalEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 
@@ -24,12 +24,13 @@ class DataTransformation:
     
     def get_data_transformer_object(self):
         try:
-            logging.info("Creating Data Transformation Config")
+            logging.info("Creating Data Transformation Pipeline")
 
             self.schema_config = read_yaml(values.SCHEMA_FILE_PATH)
 
             numerical_column = self.schema_config["numerical_columns"]
             categorical_column = self.schema_config["categorical_columns"]
+            ordinal_column = self.schema_config["ordinal_columns"]
 
             num_pipeline = Pipeline(
                 steps= [
@@ -43,10 +44,16 @@ class DataTransformation:
                     ('imputer',SimpleImputer(strategy='most_frequent'))
                 ]
             )
+            ordinal_pipeline = Pipeline(
+                steps=[
+                    ('Ordinal Encoding',OrdinalEncoder())
+                ]
+            )
             preprocessor = ColumnTransformer(
                 transformers=[
                     ('num_pipeline',num_pipeline,numerical_column),
-                    ('categorical_pipeline',cat_pipeline,categorical_column)
+                    ('categorical_pipeline',cat_pipeline,categorical_column),
+                    ('ordinal_pipeline',ordinal_pipeline,ordinal_column)
                 ]
             )
             return preprocessor

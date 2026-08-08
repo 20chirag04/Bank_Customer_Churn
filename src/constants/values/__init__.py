@@ -25,8 +25,9 @@ TRANSFORMED_TRAIN_FILE_NAME= "train.npy"
 TRANSFORMED_TEST_FILE_NAME= "test.npy"
 PREPROCESSOR_OBJECT_FILE_NAME= "preprocessor.pkl"
 
-
-TRAINED_MODEL_DIR = "trained"
+## Model Trainer Variables
+MODEL_TRAINER_DIR = "model_trainer"
+TRAINED_MODEL_FILE_NAME = 'model.pkl'
 
 
 EVALUATION_DIR = "evaluation"

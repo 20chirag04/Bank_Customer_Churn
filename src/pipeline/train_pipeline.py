@@ -4,7 +4,10 @@ import sys
 from src.components.data_ingestion import DataIngestion
 from src.components.data_validation import DataValidation
 from src.components.data_transformation import DataTransformation
-from src.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
+from src.entity.config_entity import (
+    DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+    )
 
 class TrainingPipeline:
     def start_training_pipeline(self):
@@ -30,6 +33,11 @@ class TrainingPipeline:
                                                     data_transformation_config=data_transformation_config
             )
             data_transformation_artifact = (data_transformation.initiate_data_transformation())
+
+            model_trainer_config = ModelTrainerConfig()
+            model_trainer = ModelTrainer(data_transformation_artifact=data_transformation_artifact,
+                                         model_trainer_config=model_trainer_config)
+            model_trainer_artifact = (model_trainer.initiate_model_trainer())
 
         except Exception as e:
             raise CustomException(e,sys)
