@@ -84,6 +84,7 @@ def evaluate_models(X_train, y_train,X_test,y_test,models,param):
                 f"{model_name} Recall: "
                 f"{test_model_score}"
             )
+            logging.info(f"Best Parameters: {gs.best_params_}")
             models[model_name] = model
         return report
     except Exception as e:
